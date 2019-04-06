@@ -215,3 +215,42 @@ Options:
   -m|--mod <mod>          One for each mod. The mods to compute the performance with. Values: hr, dt, fl, 4k, 5k, etc...
   -o|--output <file.txt>  Output results to text file.
 ```
+
+### Plot
+```
+> dotnet run -- plot --help
+
+Usage: dotnet PerformanceCalculator.dll plot [arguments] [options]
+
+Arguments:
+  format                  Required. Output format. Values: csv
+  beatmap                 Required. Beatmap file (.osu) to plot.
+
+Options:
+  -?|-h|--help            Show help information
+  -m|--m <mod>            One for each mod. The mods to compute the difficulty with.Values: hr, dt, hd, fl, ez, 4k, 5k, etc...
+  -o|--output <file.txt>  Output results to text file.
+```
+
+```
+> python .\plot.py --help
+usage: plot.py [-h] [--index] [--labels [LABELS [LABELS ...]]]
+               [input [input ...]]
+
+Read beatmap difficulty csv and plot it.
+
+positional arguments:
+  input                 list of input files to read, default to stdin
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --index               use note index as x axis, default use time
+  --labels [LABELS [LABELS ...]]
+                        label for each input file, default uses file name
+
+examples:
+  dotnet -- plot csv BEATMAP.osu  | python plot.py
+  python plot.py before.csv after.csv --labels before after
+```
+
+Together these programs offer an easy way to view strains per note and how they affect star rating.

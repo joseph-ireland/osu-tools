@@ -8,6 +8,7 @@ using PerformanceCalculator.Difficulty;
 using PerformanceCalculator.Performance;
 using PerformanceCalculator.Profile;
 using PerformanceCalculator.Simulate;
+using PerformanceCalculator.Plot;
 
 namespace PerformanceCalculator
 {
@@ -16,6 +17,8 @@ namespace PerformanceCalculator
     [Subcommand("performance", typeof(PerformanceCommand))]
     [Subcommand("profile", typeof(ProfileCommand))]
     [Subcommand("simulate", typeof(SimulateListingCommand))]
+    [Subcommand("plot", typeof(PlotCommand))]
+
     [HelpOption("-?|-h|--help")]
     public class Program
     {
