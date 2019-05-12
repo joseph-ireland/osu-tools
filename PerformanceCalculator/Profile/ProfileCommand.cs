@@ -61,8 +61,8 @@ namespace PerformanceCalculator.Profile
 
                 Mod[] mods = ruleset.ConvertLegacyMods((LegacyMods)play.enabled_mods).ToArray();
 
-                var working = new ProcessorWorkingBeatmap(cachePath, (int)play.beatmap_id) { Mods = { Value = mods } };
-                var beatmap = working.GetPlayableBeatmap(ruleset.RulesetInfo);
+                var working = new ProcessorWorkingBeatmap(cachePath, (int)play.beatmap_id);
+                var beatmap = working.GetPlayableBeatmap(ruleset.RulesetInfo, mods);
                 var mapCombo = beatmap.HitObjects.Count + beatmap.HitObjects.OfType<Slider>().Sum(s => s.NestedHitObjects.Count - 1);
 
                 var score = new ProcessorScoreParser(working).Parse(new ScoreInfo
