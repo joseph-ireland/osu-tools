@@ -72,19 +72,54 @@ namespace PerformanceCalculator.Simulate
             }
             else
             {
-                // Let Great=6, Good=2, Meh=1, Miss=0. The total should be this.
-                var targetTotal = (int)Math.Round(accuracy * totalResultCount * 6);
-
-                // Start by assuming every non miss is a meh
-                // This is how much increase is needed by greats and goods
-                var delta = targetTotal - (totalResultCount - countMiss);
-
-                // Each great increases total by 5 (great-meh=5)
-                countGreat = delta / 5;
-                // Each good increases total by 1 (good-meh=1). Covers remaining difference.
-                countGood = delta % 5;
-                // Mehs are left over. Could be negative if impossible value of amountMiss chosen
-                countMeh = totalResultCount - countGreat - countGood - countMiss;
+                countGreat = totalResultCount - countMiss;
+                countGood = 0;
+                countMeh = 0;
+                double newAcc = (double)((6 * countGreat) + (2 * countGood) + countMeh) / (6 * totalResultCount);
+                if (newAcc > accuracy)
+                {
+                    while (true)
+                    {
+                        countGreat--;
+                        countGood++;
+                        newAcc = (double)((6 * countGreat) + (2 * countGood) + countMeh) / (6 * totalResultCount);
+                        if (newAcc < accuracy)
+                        {
+                            countGood--;
+                            countMeh++;
+                            newAcc = (double)((6 * countGreat) + (2 * countGood) + countMeh) / (6 * totalResultCount);
+                            if (newAcc < accuracy)
+                            {
+                                countGreat++;
+                                countMeh--;
+                                if (countGood == 0)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    while (true)
+                                    {
+                                        if (countGood == 0)
+                                        {
+                                            break;
+                                        }
+                                        countGood--;
+                                        countMeh++;
+                                        newAcc = (double)((6 * countGreat) + (2 * countGood) + countMeh) / (6 * totalResultCount);
+                                        if (newAcc < accuracy)
+                                        {
+                                            countGood++;
+                                            countMeh--;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
             }
 
             return new Dictionary<HitResult, int>

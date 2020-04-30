@@ -7,6 +7,7 @@ using osu.Game.Beatmaps.Formats;
 using PerformanceCalculator.Difficulty;
 using PerformanceCalculator.Performance;
 using PerformanceCalculator.Profile;
+using PerformanceCalculator.Compare;
 using PerformanceCalculator.Simulate;
 
 namespace PerformanceCalculator
@@ -15,6 +16,7 @@ namespace PerformanceCalculator
     [Subcommand(typeof(DifficultyCommand))]
     [Subcommand(typeof(PerformanceCommand))]
     [Subcommand(typeof(ProfileCommand))]
+    [Subcommand(typeof(CompareCommand))]
     [Subcommand(typeof(SimulateListingCommand))]
     [HelpOption("-?|-h|--help")]
     public class Program

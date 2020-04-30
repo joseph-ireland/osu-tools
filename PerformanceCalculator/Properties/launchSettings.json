@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PerformanceCalculator": {
+      "commandName": "Project",
+      "commandLineArgs": "simulate osu \"D:\\Projects\\osu-tools\\PerformanceCalculator\\cache\\1211507.osu\"",
+      "workingDirectory": "D:\\Projects\\osu-tools\\PerformanceCalculator"
+    }
+  }
+}
