@@ -9,6 +9,7 @@ using PerformanceCalculator.Performance;
 using PerformanceCalculator.Profile;
 using PerformanceCalculator.Compare;
 using PerformanceCalculator.Simulate;
+using PerformanceCalculator.Visualise;
 
 namespace PerformanceCalculator
 {
@@ -18,6 +19,7 @@ namespace PerformanceCalculator
     [Subcommand(typeof(ProfileCommand))]
     [Subcommand(typeof(CompareCommand))]
     [Subcommand(typeof(SimulateListingCommand))]
+    [Subcommand(typeof(VisualiseCommand))]
     [HelpOption("-?|-h|--help")]
     public class Program
     {

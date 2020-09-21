@@ -111,9 +111,9 @@ namespace PerformanceCalculator.Difficulty
                 case OsuDifficultyAttributes osu:
                     result.AttributeData = new List<(string, object)>
                     {
-                        ("aim rating", osu.AimSR.ToString("N3")),
-                        ("speed rating", osu.TapSR.ToString("N3")),
-                        ("finger control", osu.FingerControlSR.ToString("N3"))
+                        ("aim rating", osu.AimSr.ToString("N3")),
+                        ("speed rating", osu.TapSr.ToString("N3")),
+                        ("finger control", osu.FingerControlSr.ToString("N3"))
                     };
 
                     break;
